@@ -242,6 +242,7 @@ function userInput(input, div) {
     })
 }
 
+
 function getrr() {
     window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
 }
@@ -252,3 +253,52 @@ function main(){
 }
 
 main();
+
+
+
+
+
+
+
+
+
+
+
+function showSecret() {
+    console.log("I wonder where the password is?");
+    const div = document.createElement("div");
+    const span = document.createElement("span");
+    span.textContent = "password: ";
+    div.appendChild(span);
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "password");
+
+    div.appendChild(input);
+    root.appendChild(div);
+
+    // Focus after appending
+    setTimeout(() => input.focus(), 0);
+
+    input.addEventListener("keypress", (event) => {
+        if(event.key === "Enter") {
+            event.preventDefault(); // stop weird key propagation
+            input.setAttribute("disabled", "true");
+            if(event.target.value === "thepasswordisthis") {
+                console.log("Gottem!");
+                getrr();
+                const p = document.createElement("p");
+                p.textContent = "Get rickrolled!";
+                div.appendChild(p);
+            } else {
+                const p = document.createElement("p");
+                p.textContent = "Invalid password!";
+                div.appendChild(p);
+            }
+            createCLI();
+            const newInput = document.getElementById("input");
+            newInput.focus();
+            newInput.scrollIntoView();
+        }
+    });
+}
