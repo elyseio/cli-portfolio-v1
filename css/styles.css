@@ -1,7 +1,42 @@
+/***********************************************************
+                        GLOBAL STYLES
+************************************************************/
+
+:root {
+    --bg-color: rgb(16, 17, 22);
+    --primary-txt-color: rgb(0, 255, 156);
+    --white-txt-color: rgb(255, 255, 255);
+}
+
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    line-height: 1.7;
+    background-color: var(--bg-color);
+    color: var(--white-txt-color);
+}
+
+main {
+    margin-top: 2.3em;
+    margin-bottom: 1em;
+}
+
+img {
+    width: 10em;
+}
+
+input {
+    border: 0;
+    background: none;
+    color: var(--white-txt-color);
+}
+
+input:focus {
+    outline: none;
 }
