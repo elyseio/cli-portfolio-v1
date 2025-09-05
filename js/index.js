@@ -242,6 +242,10 @@ function userInput(input, div) {
     })
 }
 
+function getrr() {
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+}
+
 
 function main(){
     createBanner();
