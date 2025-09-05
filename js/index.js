@@ -45,3 +45,35 @@ const projects = [
         link: "https://elyseio.me"
     }
 ];
+
+function createBanner() {
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div id="banner" class="banner">
+            <div class="p-container hide" id="p-container">
+                <p class="p-text crt">
+                Wel...welcome! You've found the portfolio o..of elyseio... (Version 1.0.0) 
+                <br>
+                -------
+                <br>
+                This is an interactive web terminal.
+                <br>
+                -------
+                <br>
+                For a list of commands, type 'help' or '?' and press enter. 
+                </p>
+            </div>
+
+            <div class="img-container">
+                <img src="./img/evil-morty.png" alt="Evil Morty" width=200px />
+            </div>
+        </div>
+    `;
+    root.appendChild(div);
+}
+
+function main(){
+    createBanner();
+}
+
+main();
