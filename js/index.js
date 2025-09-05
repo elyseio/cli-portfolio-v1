@@ -191,6 +191,14 @@ function showHelp() {
 }
 
 
+function error() {
+    const p = document.createElement("p");
+    p.textContent = "Command not found. Type 'help' or '?' for a list of commands.";
+    root.appendChild(p);
+    createCLI();
+}
+
+
 function main(){
     createBanner();
 }
