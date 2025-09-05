@@ -169,6 +169,28 @@ function showGithub() {
 }
 
 
+function showHelp() {
+    const div = document.createElement("div");
+    helpCommands.map((help) => {
+        const p = document.createElement("p");
+        p.setAttribute("class", "p-help");
+
+        const spanCommand = document.createElement("span");
+        spanCommand.setAttribute("class", "span-command");
+        spanCommand.textContent = help.command;
+
+        const pDescription = document.createElement("p");
+        pDescription.textContent = help.description;
+        pDescription.setAttribute("class", "p-description");
+
+        p.append(spanCommand, pDescription);
+        div.appendChild(p);
+    });
+    root.appendChild(div);
+    createCLI();
+}
+
+
 function main(){
     createBanner();
 }
