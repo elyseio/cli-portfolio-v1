@@ -153,6 +153,14 @@ function showProjects() {
 }
 
 
+function showEmail() {
+    const p = document.createElement("p");
+    p.innerHTML = `You can email me at: <a href="mailto:elyseio@protonmail.com">elyseio@protonmail.com</a>`;
+    root.appendChild(p);
+    createCLI();
+}
+
+
 function main(){
     createBanner();
 }
