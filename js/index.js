@@ -161,6 +161,14 @@ function showEmail() {
 }
 
 
+function showGithub() {
+    const p = document.createElement("p");
+    p.innerHTML = `<a href="https://github.com/elyseio" target="_blank">github.com/elyseio</a>`;
+    root.appendChild(p);
+    createCLI();
+}
+
+
 function main(){
     createBanner();
 }
