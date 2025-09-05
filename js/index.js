@@ -199,6 +199,50 @@ function error() {
 }
 
 
+function userInput(input, div) {
+    input.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" || e.keyCode === 13) {
+            const userInput = e.target.value.toLowerCase();
+            if(userInput === "clear") {
+                clear();
+                return;
+            }
+            const span = document.createElement("span");
+            span.textContent = userInput;
+            div.appendChild(span);
+            input.remove();
+            switch(userInput) {
+                case "about":
+                    showAbout();
+                    break;
+                case "projects":
+                    showProjects();
+                    break
+                case "email":
+                    showEmail();
+                    break;
+                case "github":
+                    showGithub();
+                    break;
+                case "banner":
+                    createBanner();
+                    break;
+                case "help":
+                case "?":
+                    showHelp();
+                    break;
+                case "secret":
+                    showSecret();
+                    break;
+                default:
+                    error();
+                    break;
+            }
+        }
+    })
+}
+
+
 function main(){
     createBanner();
 }
