@@ -46,12 +46,51 @@ const projects = [
     }
 ];
 
+function createCLI() {
+    const div = document.createElement("div");
+    const span = document.createElement("span");
+    const newInput = document.createElement("input");
+
+    div.setAttribute("id", "div");
+    div.setAttribute("class", "cli");
+    
+    newInput.setAttribute("text", "text");
+    newInput.setAttribute("id", "input");
+
+    span.classList.add("whois");
+    span.textContent = "guest@elyseio.me:~$ ";
+
+    div.appendChild(span);
+    div.appendChild(newInput);
+    root.appendChild(div);
+    document.getElementById("input").focus();
+    document.getElementById("input").scrollIntoView();
+    userInput(newInput, div);
+}
+
+function loadP() {
+    const img = document.querySelector("img");
+    function loaded() {
+        const pContainer = document.getElementById('p-container');
+        if(pContainer.classList.contains('hide')) {
+            pContainer.classList.remove('hide');
+        }
+        createCLI();
+        pContainer.removeAttribute('id');
+    }
+    if(img.complete) {
+        loaded();
+    } else {
+        img.addEventListener('load', loaded);
+    }
+}
+
 function createBanner() {
     const div = document.createElement("div");
     div.innerHTML = `
         <div id="banner" class="banner">
             <div class="p-container hide" id="p-container">
-                <p class="p-text crt">
+                <p class="p-text">
                 Wel...welcome! You've found the portfolio o..of elyseio... (Version 1.0.0) 
                 <br>
                 -------
@@ -65,11 +104,20 @@ function createBanner() {
             </div>
 
             <div class="img-container">
-                <img src="./img/evil-morty.png" alt="Evil Morty" width=200px />
+                <img src="./img/evil-morty.png" alt="Evil Morty" />
             </div>
         </div>
     `;
     root.appendChild(div);
+}
+
+function about() {
+    const p = document.createElement("p");
+    p.textContent = `Uh hi, I'm elyseio. I'm a software developer and programmer. I love building cool stuff and learning new things.
+    I also love gaming, especially on Roblox. I'm currently learning more about web development and game development.
+    `;
+    root.appendChild(p);
+    createCLI();
 }
 
 function main(){
