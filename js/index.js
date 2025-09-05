@@ -38,13 +38,14 @@ const helpCommands = [
 const projects = [
     {
         name: "gag_bot - Grow A Garden Roblox bot, GUI program built with python to automate purchasing gear or eggs",
-        link: "https://github.com/elyseio/gag_bot"
+        url: "https://github.com/elyseio/gag_bot"
     },
     {
         name: "CLI Portfolio - A terminal style portfolio buildt with vanilla HTML, CSS, and JavaScript.",
-        link: "https://elyseio.me"
+        url: "https://elyseio.me"
     }
 ];
+
 
 function createCLI() {
     const div = document.createElement("div");
@@ -68,6 +69,7 @@ function createCLI() {
     userInput(newInput, div);
 }
 
+
 function loadP() {
     const img = document.querySelector("img");
     function loaded() {
@@ -84,6 +86,7 @@ function loadP() {
         img.addEventListener('load', loaded);
     }
 }
+
 
 function createBanner() {
     const div = document.createElement("div");
@@ -109,9 +112,19 @@ function createBanner() {
         </div>
     `;
     root.appendChild(div);
+    loadP();
 }
 
-function about() {
+
+function clear() {
+    while(root.firstChild) {
+        root.removeChild(root.firstChild);
+    }
+    createCLI();
+}
+
+
+function showAbout() {
     const p = document.createElement("p");
     p.textContent = `Uh hi, I'm elyseio. I'm a software developer and programmer. I love building cool stuff and learning new things.
     I also love gaming, especially on Roblox. I'm currently learning more about web development and game development.
@@ -119,6 +132,26 @@ function about() {
     root.appendChild(p);
     createCLI();
 }
+
+
+function showProjects() {
+    const div = document.createElement("div");
+    div.setAttribute("class", "projects");
+
+    for(const el of projects) {
+        const p = document.createElement("p");
+        const a = document.createElement("a");
+        const txt = document.createTextNode(el.name);
+        a.appendChild(txt);
+        a.href = el.url;
+        a.target = "_blank";
+        p.appendChild(a);
+        div.appendChild(p);
+    }
+    root.appendChild(div);
+    createCLI();
+}
+
 
 function main(){
     createBanner();
