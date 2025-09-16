@@ -51,21 +51,42 @@ function createCLI() {
     const div = document.createElement("div");
     const span = document.createElement("span");
     const newInput = document.createElement("input");
+    const label = document.createElement("label");
 
-    div.setAttribute("id", "div");
-    div.setAttribute("class", "cli");
+    // Container
+    div.id = "div";
+    div.class = "cli";
     
-    newInput.setAttribute("text", "text");
-    newInput.setAttribute("id", "input");
+    // Give the region an accessible name for screen readers
+    div.setAttribute("role", "region");
+    div.setAttribute("aria-live", "polite");
+    div.setAttribute("aria-label", "Command Line Interface");
 
+    // Visible prompt
     span.classList.add("whois");
     span.textContent = "guest@elyseio.me:~$ ";
 
+    // Input field
+    newInput.type = "text";
+    newInput.id = "input";
+    newInput.setAttribute("aria-describedby", "cli-prompt");
+    newInput.setAttribute("aria-label", "Enter command");
+
+    // Hidden text node to describe the prompt for screen readers
+    label.id = "cli-prompt";
+    label.className = "sr-only"; // use CSS: .sr-only {position:absolute;left:-9999px;}
+    label.textContent = "Terminal prompt intruder at term";
+    
+    // Append elements
     div.appendChild(span);
+    div.appendChild(label);
     div.appendChild(newInput);
     root.appendChild(div);
-    document.getElementById("input").focus();
-    document.getElementById("input").scrollIntoView();
+
+    // Focus and scroll to input
+    newInput.focus();
+    newInput.scrollIntoView();
+
     userInput(newInput, div);
 }
 
